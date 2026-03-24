@@ -7,7 +7,6 @@
 
 let text = ''
 
-
 // Get current date
 let now = Meta.currentUserTime
 
@@ -19,40 +18,37 @@ let now = Meta.currentUserTime
 */
 
 // Set target date (February 15, 2026)
-const p1_targetDate = moment("15/02/2026", "DD/MM/YYYY");
+const startingDate = moment("15/02/2026", "DD/MM/YYYY");
 
-const p1_duration = moment.duration(now.diff(p1_targetDate))
+const p1_duration = moment.duration(now.diff(startingDate))
 const p1_durationDays = Math.floor(p1_duration.as('days'))
 
 const p1_days = 44
 
 
 // Calculate date 44 days before target date
-const p1_endDate = p1_targetDate.add(p1_days, 'days');
+const p1_endDate = startingDate.add(p1_days, 'days');
 // Format the countdown date
 const p1_lastDate = p1_endDate.format("D MMM YYYY");
 
-var pantang_1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
+var p1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
 <code>${p1_days - p1_durationDays} days left</code>\n
 Last Date: ${p1_lastDate}\n
 `
-
 if(p1_days == p1_durationDays){
-  pantang_1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
+  p1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
   <b>Today is the last day!</b>\n
   Last Date: ${p1_lastDate}\n
   `
 }
 
 if(p1_durationDays <= p1_days){
-  text += pantang_1_text
+  text += p1_text
 }else{
   text = 'No pantang'
   Telegram.sendMessage1.skip(text)
 }
 
-
-// Send message with the countdown date
 Telegram.sendMessage1.setText(text);
 
 /*
