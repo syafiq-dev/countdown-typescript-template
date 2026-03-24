@@ -35,9 +35,7 @@ if(p1_days == p1_durationDays){
   `
 }
 
-if(p1_durationDays <= p1_days){
-  p1_text += p1_text
-}else{
+if(p1_durationDays > p1_days){
   p1_text = 'No pantang'
   Telegram.sendMessage1.skip(p1_text)
 }
@@ -72,9 +70,7 @@ if(p2_days == p2_durationDays){
   `
 }
 
-if(p2_durationDays <= p2_days){
-  p2_text += p2_text
-}else{
+if(p2_durationDays > p2_days){
   p2_text = 'No pantang'
   Telegram.sendMessage2.skip(p2_text)
 }
