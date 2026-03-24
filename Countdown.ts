@@ -8,34 +8,35 @@
 let text = ''
 
 // Set target date (February 15, 2026)
-const targetDate = moment("15/02/2026", "DD/MM/YYYY");
+const p1_targetDate = moment("15/02/2026", "DD/MM/YYYY");
 
 // Get current date
 let now = Meta.currentUserTime
 
-const duration = moment.duration(now.diff(targetDate))
+const duration = moment.duration(now.diff(p1_targetDate))
 const durationDays = Math.floor(duration.as('days'))
 
-const pantang1_days = 44
+const p1_days = 44
+const p2_months = 6
 
 // Calculate date 44 days before target date
-const endDate = targetDate.add(pantang1_days, 'days');
+const p1_endDate = p1_targetDate.add(p1_days, 'days');
 // Format the countdown date
-const lastDate = endDate.format("D MMM YYYY");
+const p1_lastDate = p1_endDate.format("D MMM YYYY");
 
 var pantang_1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
-<code>${pantang1_days - durationDays} days left</code>\n
-Last Date: ${lastDate}\n
+<code>${p1_days - durationDays} days left</code>\n
+Last Date: ${p1_lastDate}\n
 `
 
-if(pantang1_days == durationDays){
+if(p1_days == durationDays){
   pantang_1_text = `<b><u>Countdown pantang 44 hari:</u></b>\n
   <b>Today is the last day!</b>\n
-  Last Date: ${lastDate}\n
+  Last Date: ${p1_lastDate}\n
   `
 }
 
-if(durationDays <= pantang1_days){
+if(durationDays <= p1_days){
   text += pantang_1_text
 }else{
   text = 'No pantang'
