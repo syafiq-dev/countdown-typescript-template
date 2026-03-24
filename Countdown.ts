@@ -39,8 +39,10 @@ if(durationDays <= pantang1_days){
   text += pantang_1_text
 }else{
   text = 'No pantang'
-  Telegram.sendMessage.skip(text)
+  Telegram.sendMessage1.skip(text)
 }
 
 // Send message with the countdown date
-Telegram.sendMessage.setText(text);
+Telegram.sendMessage1.setText(text);
+
+Telegram.sendMessage2.skip('in progress')
